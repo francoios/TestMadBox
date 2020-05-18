@@ -6,8 +6,6 @@ namespace MadBoxTest
 {
     public class WebRequestManager : MadBoxMonobehaviour
     {
-        [SerializeField]
-        private ScoresCollection _scoresCollection;
         #region Singleton
         private static WebRequestManager _instance;
         public static WebRequestManager Instance
@@ -29,12 +27,6 @@ namespace MadBoxTest
             DontDestroyOnLoad(transform.gameObject);
         }
         #endregion
-
-
-        public override void Start()
-        {
-            base.Start();
-        }
 
         /// <summary>
         /// this method is started by coroutine, it is simply trying to access the following URI to retrive users data
@@ -60,9 +52,8 @@ namespace MadBoxTest
                 else
                 {
                     JsonUtility.ToJson(webRequest.downloadHandler.text);
-                    _scoresCollection = JsonUtility.FromJson<ScoresCollection>(webRequest.downloadHandler.text);
+                    ScoreManager.Instance._scoresCollection = JsonUtility.FromJson<ScoresCollection>(webRequest.downloadHandler.text);
                     EventManager.TriggerEvent(GameHandlerData.GetPlayersScoresSuccessHandler);
-                    Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
                 }
             }
         }
@@ -104,12 +95,10 @@ namespace MadBoxTest
                 if (webRequest.isNetworkError)
                 {
                     EventManager.TriggerEvent(GameHandlerData.TestServerConnectivityFailureHandler);
-                    Debug.Log(pages[page] + ": Error: " + webRequest.error);
                 }
                 else
                 {
                     JsonUtility.ToJson(webRequest.downloadHandler.text);
-                    Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
                     if (webRequest.downloadHandler.text == "ok")
                         EventManager.TriggerEvent(GameHandlerData.TestServerConnectivitySuccessHandler);
                 }
@@ -119,21 +108,21 @@ namespace MadBoxTest
 
         protected override void EventHandlerRegister()
         {
-            base.EventHandlerRegister();
             EventManager.StartListening(GameHandlerData.TestServerConnectivityHandler, TestServer);
             EventManager.StartListening(GameHandlerData.SendPlayerScoreHandler, SendPlayerScore);
             EventManager.StartListening(GameHandlerData.GetPlayersScoresHandler, GetPlayersScores);
-
+            base.EventHandlerRegister();
         }
 
         private void GetPlayersScores(object arg0)
         {
-            StartCoroutine(GetScoresRequest("http://localhost:3000/"));
+            StartCoroutine(GetScoresRequest("http://localhost:3000/GetScore"));
         }
 
         private void SendPlayerScore(object arg0)
         {
-            StartCoroutine(SendScoreRequest("http://localhost:3000/"));
+            playerScoreMessage msg = arg0 as playerScoreMessage;
+            StartCoroutine(SendScoreRequest("http://localhost:3000/AddScore?user="+msg.playerName+"&score="+msg.playerScore));
         }
 
         private void TestServer(object arg0)

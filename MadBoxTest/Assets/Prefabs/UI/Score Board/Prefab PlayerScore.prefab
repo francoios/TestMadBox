@@ -315,6 +315,7 @@ GameObject:
   - component: {fileID: 1141393152888962247}
   - component: {fileID: 1141393152888962246}
   - component: {fileID: 1141393152888962249}
+  - component: {fileID: 1786032931}
   m_Layer: 8
   m_Name: Prefab PlayerScore
   m_TagString: Untagged
@@ -423,6 +424,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollView: {fileID: 0}
   draggablePanel: {fileID: 0}
+--- !u!114 &1786032931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141393152888962251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef2e3579aaa07e42b9fc4b49b99437f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScriptReady: 0
+  position: {fileID: 1141393152510702977}
+  userName: {fileID: 1141393151094820565}
+  userScore: {fileID: 1141393151674519706}
 --- !u!1 &1141393153049621996
 GameObject:
   m_ObjectHideFlags: 0

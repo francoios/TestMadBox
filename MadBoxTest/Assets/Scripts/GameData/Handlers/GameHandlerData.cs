@@ -11,6 +11,13 @@ namespace MadBoxTest
     public class MoneyMessage : UnityEvent<System.Object>
     {
     }
+    
+    [System.Serializable]
+    public class playerScoreMessage : UnityEvent<System.Object>
+    {
+        public string playerName;
+        public int playerScore;
+    }
 
     [System.Serializable]
     public class ObjectSelectedMessage : UnityEvent<System.Object>

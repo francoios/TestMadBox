@@ -8,7 +8,6 @@ namespace MadBoxTest
 {
     public class MadBoxMonobehaviour : MonoBehaviour
     {
-
         public bool ScriptReady = false;
 
         // Use this for initialization
@@ -34,7 +33,6 @@ namespace MadBoxTest
             EventManager.StopListening(GameHandlerData.SceneLoadedHandler, OnSceneLoaded);
             EventManager.StopListening(GameHandlerData.GameStartingHandler, OnGameStarting);
         }
-
 
         protected virtual void OnSceneLoaded(object arg0)
         {
