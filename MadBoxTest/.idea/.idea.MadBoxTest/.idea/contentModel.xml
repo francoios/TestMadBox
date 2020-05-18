@@ -343,6 +343,7 @@
           <e p="Managers" t="Include">
             <e p="EventManager.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
+            <e p="MenuManager.cs" t="Include" />
             <e p="WebRequestManager.cs" t="Include" />
           </e>
           <e p="MasterClass" t="Include">

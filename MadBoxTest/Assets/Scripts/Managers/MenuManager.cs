@@ -1,22 +1,14 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using UnityEngine;
-using UnityEngine.Networking;
-
-
+﻿
 namespace MadBoxTest
 {
-    public class GameManager : MadBoxMonobehaviour
+    public class MenuManager : MadBoxMonobehaviour
     {
 
         #region Singleton
 
-        private static GameManager _instance;
+        private static MenuManager _instance;
 
-        public static GameManager Instance
+        public static MenuManager Instance
         {
             get { return _instance; }
         }
@@ -44,17 +36,30 @@ namespace MadBoxTest
             base.Start();
         }
 
-        protected override void EventHandlerRegister()
+        public void SendPlayerScore()
         {
-            base.EventHandlerRegister();
+            
         }
 
-        protected override void EventHandlerUnRegister()
+        public void GetPlayersScores()
         {
-            base.EventHandlerUnRegister();
+            
         }
+
+        public void TestConnectivity()
+        {
+            
+        }
+
+        public void ReturnToMenu()
+        {
+            
+        }
+        
+        public void GoToPlayerScoresBoard()
+        {
+            
+        }
+        
     }
 }
-
-
-    

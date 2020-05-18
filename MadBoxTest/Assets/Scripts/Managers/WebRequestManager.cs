@@ -144,6 +144,9 @@ namespace MadBoxTest
         protected override void EventHandlerUnRegister()
         {
             base.EventHandlerUnRegister();
+            EventManager.StopListening(GameHandlerData.TestServerConnectivityHandler, TestServer);
+            EventManager.StopListening(GameHandlerData.SendPlayerScoreHandler, SendPlayerScore);
+            EventManager.StopListening(GameHandlerData.GetPlayersScoresHandler, GetPlayersScores);
         }
     }
 }
