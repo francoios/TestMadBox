@@ -7,7 +7,6 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="ErrorManager.cs" t="Include" />
         <e p="Mobile Cartoon GUI" t="Include">
           <e p="Examples" t="Include">
             <e p="Readme.txt" t="Include" />
@@ -339,12 +338,13 @@
             </e>
           </e>
         </e>
-        <e p="PlayerScorePrefabData.cs" t="Include" />
-        <e p="ScoreManager.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="GameData" t="Include">
             <e p="Handlers" t="Include">
               <e p="GameHandlerData.cs" t="Include" />
+            </e>
+            <e p="Prefabs" t="Include">
+              <e p="PlayerScorePrefabData.cs" t="Include" />
             </e>
             <e p="ScoreBoard" t="Include">
               <e p="Player.cs" t="Include" />
@@ -352,9 +352,11 @@
             </e>
           </e>
           <e p="Managers" t="Include">
+            <e p="ErrorSuccessManager.cs" t="Include" />
             <e p="EventManager.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
             <e p="MenuManager.cs" t="Include" />
+            <e p="ScoreManager.cs" t="Include" />
             <e p="WebRequestManager.cs" t="Include" />
           </e>
           <e p="MasterClass" t="Include">

@@ -30,13 +30,15 @@ app.get('/AddScore', (req, res) => {
         if (err) {
             obj.users.push({ user: req.query.user, score: req.query.score });
             var json = JSON.stringify(obj);
-            fs.writeFile('scores.json', json, 'utf8', (res) =>{});
+            fs.writeFile('scores.json', json, 'utf8', (res) => { });
+            res.send("ok");
         } else {
             obj = JSON.parse(data); //now it an object
             obj.users.push({ user: req.query.user, score: req.query.score }); 
             var json = JSON.stringify(obj); 
             fs.writeFile('scores.json', json, 'utf8', (res) => {
             }); 
+            res.send("ok");
         }
     });
 });

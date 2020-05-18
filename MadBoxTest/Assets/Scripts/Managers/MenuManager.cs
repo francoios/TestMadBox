@@ -40,7 +40,19 @@ namespace MadBoxTest
         }
 
         #endregion
-        
+
+        protected override void EventHandlerRegister()
+        {
+            base.EventHandlerRegister();
+            EventManager.StartListening(GameHandlerData.GetPlayersScoresSuccessHandler, GoToScoreBoard);
+        }
+
+        protected override void EventHandlerUnRegister()
+        {
+            EventManager.StopListening(GameHandlerData.GetPlayersScoresSuccessHandler, GoToScoreBoard);
+            base.EventHandlerUnRegister();
+        }
+
         public void SendPlayerScore()
         {
             playerScoreMessage msg = new playerScoreMessage();
@@ -52,7 +64,6 @@ namespace MadBoxTest
         public void GetPlayersScores()
         {
             EventManager.TriggerEvent(GameHandlerData.GetPlayersScoresHandler, null);
-            GoToPlayerScoresBoard();
         }
 
         public void TestConnectivity()
@@ -64,6 +75,11 @@ namespace MadBoxTest
         {
             basicMenu.GetComponent<TweenTransform>().PlayReverse();
             scoreBoard.GetComponent<TweenTransform>().PlayReverse();
+        }
+        
+        private void GoToScoreBoard(object arg0)
+        {
+            GoToPlayerScoresBoard();
         }
         
         public void GoToPlayerScoresBoard()
