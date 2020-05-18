@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -52,6 +53,7 @@ namespace MadBoxTest
                 else
                 {
                     JsonUtility.ToJson(webRequest.downloadHandler.text);
+                    ScoreManager.Instance._scoresCollection.users = null;
                     ScoreManager.Instance._scoresCollection = JsonUtility.FromJson<ScoresCollection>(webRequest.downloadHandler.text);
                     EventManager.TriggerEvent(GameHandlerData.GetPlayersScoresSuccessHandler);
                 }
