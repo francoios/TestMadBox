@@ -10,7 +10,7 @@ public class ScoreManager : MadBoxMonobehaviour
     public ScoresCollection _scoresCollection;
     public GameObject scorePrefab;
     public GameObject scrollView;
-    private List<GameObject> _scores;
+    private List<GameObject> _scores = new List<GameObject>();
     
     
     #region Singleton
